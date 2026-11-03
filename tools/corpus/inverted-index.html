@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Inverted Index</title>
+<meta name="description" content="How a term-to-document mapping enables sub-millisecond keyword retrieval.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>The Inverted Index</h1>
+<h2>From documents to terms</h2>
+<p>An inverted index maps every term to the list of documents that contain it, together with term frequencies and word positions. With three documents - one about C++ programming, one about Python programming and one about competitive programming in C++ - the term programming points at all three documents, while python points at only one.</p>
+<p>Because posting lists are sorted by document id, Boolean operations become cheap two-pointer merges: intersection for AND, union for OR, and subtraction for NOT.</p>
+<h2>Positions enable phrases</h2>
+<p>Storing the position of every occurrence makes exact phrase search possible. To match the phrase competitive programming, the engine checks whether the two terms appear in adjacent positions in the correct order within the same field of a document.</p>
+<p>MiniSearch stores a virtual position stream per document that spans title, headings and body, with deliberate gaps at field boundaries so a phrase can never falsely match across two different fields.</p>
+<h2>Complexity</h2>
+<p>Looking up one term costs one hash lookup plus a scan of its posting list: proportional to the number of documents containing the term, not to the total collection size. Brute-force scanning instead touches every document for every query; the benchmark command in MiniSearch measures the difference on real data.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="tf-idf.html">TF-IDF ranking</a></li>
+<li><a href="bm25.html">BM25 ranking algorithm</a></li>
+<li><a href="boolean-queries.html">Boolean queries</a></li>
+<li><a href="phrase-search.html">Phrase search</a></li>
+<li><a href="search-engines.html">How search engines work</a></li>
+</ul>
+</body>
+</html>

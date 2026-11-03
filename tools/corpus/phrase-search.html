@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Exact Phrase Search</title>
+<meta name="description" content="Matching words in order using stored positions.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Phrase Search</h1>
+<h2>How it works</h2>
+<p>A quoted query such as "competitive programming" asks for documents where the two words appear next to each other, in that order. The engine takes the posting lists of both terms, intersects the document sets, and then checks the stored positions: the phrase matches a document if some position p holds the first term and position p plus one holds the second.</p>
+<p>Stop words are kept inside phrases, so "state of the art" matches the actual four-word sequence rather than three unrelated words.</p>
+<h2>Field boundaries</h2>
+<p>MiniSearch inserts gaps between fields in its virtual position stream. A document titled Python Guide whose body starts with the word python does not match the phrase guide python, because the last title position and the first body position are deliberately not adjacent.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="query-processing.html">Query processing</a></li>
+<li><a href="boolean-queries.html">Boolean queries</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+</ul>
+</body>
+</html>

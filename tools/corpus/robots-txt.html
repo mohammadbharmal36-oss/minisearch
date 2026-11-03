@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The robots.txt Protocol</title>
+<meta name="description" content="How websites tell crawlers what they may fetch.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>robots.txt</h1>
+<h2>The file</h2>
+<p>robots.txt is a plain text file at the root of a site. It groups Allow and Disallow path prefixes under User-agent names, and a crawler applies the group that matches its own product token, falling back to the wildcard group addressed to everyone. An empty Disallow means everything is allowed.</p>
+<p>This corpus ships a robots.txt that disallows the private directory; the MiniSearch crawler skips those pages, and the crawl log records them as skipped.</p>
+<h2>Longest prefix wins</h2>
+<p>When both an Allow and a Disallow prefix match a path, the longer, more specific prefix wins. Ties go to Allow. A Crawl-delay line asks crawlers to wait between requests; MiniSearch honors it by raising its per-host delay to at least the requested value.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="web-crawlers.html">Web crawlers</a></li>
+<li><a href="http-basics.html">HTTP protocol basics</a></li>
+<li><a href="urls.html">URLs and links</a></li>
+</ul>
+</body>
+</html>

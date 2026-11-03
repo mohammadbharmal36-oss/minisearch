@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BM25 Ranking Algorithm</title>
+<meta name="description" content="The Okapi BM25 scoring function: saturation and length normalization.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>BM25 Ranking</h1>
+<h2>The formula</h2>
+<p>BM25 scores a document for a query by summing, over query terms, an IDF factor multiplied by a saturated term frequency factor. The saturation is controlled by k1: after a handful of occurrences, repeating the term adds less and less score, which matches the intuition that relevance is not linear in repetition.</p>
+<p>The parameter b controls document length normalization. At b equal to one, long documents are penalized fully relative to the average document length; at b equal to zero, length is ignored.</p>
+<h2>Why BM25 usually beats TF-IDF</h2>
+<p>Raw TF-IDF keeps rewarding repetition linearly, so a page that mentions a word a hundred times outranks a page that mentions it once, even when the repetition is spam. BM25 saturates instead. It also normalizes document length more carefully than a simple division, which keeps medium-length focused documents competitive against both thin and bloated pages.</p>
+<p>BM25 has been the default ranking baseline of keyword search engines for decades, and it remains a strong, interpretable starting point before any learning-to-rank machinery.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="tf-idf.html">TF-IDF ranking</a></li>
+<li><a href="ranking.html">Ranking functions compared</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="glossary.html">Glossary of search terms</a></li>
+</ul>
+</body>
+</html>

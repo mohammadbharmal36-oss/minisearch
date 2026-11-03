@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Query Processing in a Search Engine</title>
+<meta name="description" content="From a raw query string to a ranked result list.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Query Processing</h1>
+<h2>Parsing</h2>
+<p>A query is parsed by a small recursive descent parser. Operators are AND, OR and NOT, quoted phrases match exact word order, and parentheses group expressions. Adjacent terms imply AND, so the query python programming behaves like python AND programming.</p>
+<p>The parser normalizes terms with the same tokenizer the indexer uses, including the technical term mapping that preserves expressions like C++ and Node.js as single searchable terms.</p>
+<h2>Evaluation</h2>
+<p>Evaluation walks the parse tree and combines posting lists with two-pointer set operations over sorted document ids. A phrase node verifies adjacent positions using the stored word positions. NOT subtracts the operand's documents from the positive side instead of scoring it.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="boolean-queries.html">Boolean queries</a></li>
+<li><a href="phrase-search.html">Phrase search</a></li>
+<li><a href="tokenization.html">Tokenization and text processing</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+</ul>
+</body>
+</html>

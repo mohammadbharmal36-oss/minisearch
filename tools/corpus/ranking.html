@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Ranking Functions Compared</title>
+<meta name="description" content="TF-IDF and BM25 side by side on the same queries.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Ranking Functions Compared</h1>
+<h2>Same candidates, different orders</h2>
+<p>TF-IDF and BM25 receive exactly the same candidate documents from the query processor; they only differ in how they score. On simple queries their rankings often agree at the top and drift lower down. On queries with repeated terms or on collections with mixed document lengths, BM25 tends to prefer focused, medium-sized documents while TF-IDF favors repetition and short documents.</p>
+<h2>Choosing in MiniSearch</h2>
+<p>The search interface and the API both accept an algorithm parameter with the values tfidf and bm25, so the same query can be run through both functions and the results compared directly. The analytics page reports the average search latency across whichever function was used.</p>
+<p>Both implementations are hand-written C++ over the same posting lists; no third-party ranking library is involved anywhere in the engine.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="tf-idf.html">TF-IDF ranking</a></li>
+<li><a href="bm25.html">BM25 ranking algorithm</a></li>
+<li><a href="query-processing.html">Query processing</a></li>
+</ul>
+</body>
+</html>

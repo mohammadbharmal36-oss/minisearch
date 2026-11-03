@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Boolean Queries</title>
+<meta name="description" content="AND, OR and NOT over posting lists.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Boolean Queries</h1>
+<h2>Semantics</h2>
+<p>The query cpp AND programming returns documents containing both terms. The query cpp OR python returns documents containing either term. The query programming NOT python returns documents about programming that do not mention python. Parentheses make combinations explicit, and operator words are recognized case-insensitively.</p>
+<h2>Efficiency</h2>
+<p>Because posting lists are sorted by document id, intersection and union run in time linear in the combined list sizes with two cursors, never with nested loops or hash rehashing. Subtraction for NOT works the same way.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="query-processing.html">Query processing</a></li>
+<li><a href="phrase-search.html">Phrase search</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+</ul>
+</body>
+</html>

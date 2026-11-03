@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HTML Parsing for Text Extraction</title>
+<meta name="description" content="From raw HTML to clean, indexable document text.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>HTML Parsing</h1>
+<h2>What to keep</h2>
+<p>A search engine does not index markup. The parser walks the HTML tree and extracts the title, meta description, canonical URL, heading text for h1 and h2, hyperlink targets, and the visible body text. Scripts, styles, templates, navigation, asides and footers are skipped because they are chrome, not content.</p>
+<h2>Why a real parser</h2>
+<p>Stripping tags with regular expressions fails on nested quotes, comments containing tag-like text, and malformed markup. A conformant HTML5 parser recovers from errors the same way browsers do. MiniSearch uses Gumbo, Google's HTML5 parsing library, for exactly this reason; the extraction rules, however, are its own.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="search-engines.html">How search engines work</a></li>
+<li><a href="tokenization.html">Tokenization and text processing</a></li>
+<li><a href="web-crawlers.html">Web crawlers</a></li>
+</ul>
+</body>
+</html>

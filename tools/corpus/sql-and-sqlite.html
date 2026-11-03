@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SQL and SQLite Databases</title>
+<meta name="description" content="Relational storage for document metadata.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>SQL and SQLite</h1>
+<h2>Why SQL here</h2>
+<p>A search engine needs durable, queryable metadata: which URL was crawled when, with what title and description. SQLite provides a complete SQL database in a single file with no server, which suits a self-contained engine perfectly.</p>
+<h2>Schema of MiniSearch</h2>
+<p>MiniSearch stores one documents table with the URL as a unique key, plus text columns for the title, description, extracted content, headings and outgoing links. The inverted index itself lives in a compact serialized binary file that loads in milliseconds; SQLite is the source of truth the index is rebuilt from when needed.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="storage-and-persistence.html">Persistence and restarts</a></li>
+<li><a href="stl.html">The standard template library</a></li>
+<li><a href="c-plus-plus.html">C++ programming language</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>MiniSearch Corpus - Programming and Search Documentation</title>
+<meta name="description" content="A documentation corpus about search engines, information retrieval and programming.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Programming and Search Documentation</h1>
+<h2>Overview</h2>
+<p>This small website is a corpus of self-written documentation pages about search engines, information retrieval, and several programming languages. The MiniSearch crawler explores it over plain HTTP, parses the HTML, tokenizes the text and builds an inverted index.</p>
+<p>Every page is plain semantic HTML with a title, a meta description, headings, paragraphs and hyperlinks to related pages. There is nothing hidden behind JavaScript: what the crawler downloads is what the parser sees.</p>
+<h2>How to read this corpus</h2>
+<p>Follow the See also links to travel the graph the way the crawler does. The pages about the inverted index, TF-IDF and BM25 describe the algorithms this engine implements in C++. The pages about crawling and robots.txt describe the polite fetching behavior you can observe in the crawler console.</p>
+<p>One page is deliberately hidden: the robots.txt file disallows the private directory, and the crawler must respect that.</p>
+<h2>A note on privacy</h2>
+<p>There is also a <a href='private/secret.html'>private page</a> that robots.txt forbids crawling. It contains the word zanzibar and nothing else of value. If you can search for zanzibar and find it, something is wrong with the crawler's manners.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="search-engines.html">How search engines work</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="c-plus-plus.html">C++ programming language</a></li>
+<li><a href="python.html">Python programming language</a></li>
+<li><a href="glossary.html">Glossary of search terms</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>HTTP Protocol Basics</title>
+<meta name="description" content="Status codes, redirects and timeouts as a crawler sees them.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>HTTP Protocol Basics</h1>
+<h2>Requests and responses</h2>
+<p>The crawler speaks plain HTTP. It issues GET requests with a User-Agent header, honors redirects up to a small cap, records the final response code, and enforces connect and total timeouts so a silent server can never stall a crawl job indefinitely.</p>
+<h2>Status codes</h2>
+<p>A 200 response with an HTML content type is indexed. Client errors such as 404 and 410 are recorded as failures and never retried within the same job. Server errors are also recorded; a future scheduler could re-try them later with backoff. Redirect chains are followed, and the final URL is what gets indexed.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="web-crawlers.html">Web crawlers</a></li>
+<li><a href="urls.html">URLs and links</a></li>
+<li><a href="robots-txt.html">The robots.txt protocol</a></li>
+</ul>
+</body>
+</html>

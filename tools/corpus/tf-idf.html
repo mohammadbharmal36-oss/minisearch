@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>TF-IDF Ranking Explained</title>
+<meta name="description" content="Term frequency times inverse document frequency, the classic relevance score.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>TF-IDF Ranking</h1>
+<h2>Term frequency</h2>
+<p>Term frequency measures how often a query term appears in a document, normalized by the document length so long documents do not win simply by being long. If a term occurs three times in a document of one hundred tokens, its normalized term frequency is low; three occurrences in a document of ten tokens is strong evidence the document is about that term.</p>
+<h2>Inverse document frequency</h2>
+<p>Inverse document frequency measures how selective a term is. A term that appears in every document of the collection cannot distinguish anything, so its IDF approaches zero after smoothing. A term that appears in a single document is maximally selective.</p>
+<p>MiniSearch uses the smoothed IDF formula log((N + 1) / (df + 1)) + 1, which stays strictly positive and avoids degenerate cases when a term occurs in every document.</p>
+<h2>Field weighting</h2>
+<p>Words in a title describe a page more precisely than words buried in a paragraph. MiniSearch therefore weights matches per field: title matches count triple, heading matches count double, and body matches count once. The weights are configurable, and they are applied at ranking time, never at index time.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="bm25.html">BM25 ranking algorithm</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="ranking.html">Ranking functions compared</a></li>
+<li><a href="search-engines.html">How search engines work</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>URLs and Links</title>
+<meta name="description" content="Normalization, relative references and deduplication.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>URLs and Links</h1>
+<h2>Normalization</h2>
+<p>Two spellings of the same address should be fetched once. Normalization lowercases the scheme and host, strips the fragment, drops default ports, and keeps the path and query intact. The normalized form is the key in the crawler's visited set.</p>
+<h2>Relative references</h2>
+<p>HTML links may be absolute, root-relative, or relative to the current page. Resolving them follows the standard reference resolution algorithm, including dot-segment removal, so a link to ../bm25.html from the ranking page lands on the right document.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="http-basics.html">HTTP protocol basics</a></li>
+<li><a href="web-crawlers.html">Web crawlers</a></li>
+<li><a href="html-parsing.html">HTML parsing</a></li>
+</ul>
+</body>
+</html>

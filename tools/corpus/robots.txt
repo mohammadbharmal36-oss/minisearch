@@ -1,0 +1,4 @@
+# MiniSearch seed corpus robots.txt
+User-agent: *
+Disallow: /private/
+Crawl-delay: 0

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tokenization and Text Processing</title>
+<meta name="description" content="Turning raw text into indexable terms without destroying technical words.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Tokenization and Text Processing</h1>
+<h2>Tokenization</h2>
+<p>Tokenization splits text into terms: lowercase, split on punctuation, keep numbers and version-like tokens intact. Programming languages make this subtle. A naive tokenizer that strips punctuation turns C++ into a bare c and Node.js into node, which makes those terms unsearchable.</p>
+<p>MiniSearch therefore recognizes protected technical terms first, with longest-match and word-boundary checks, and maps them to canonical index terms: C++ and cplusplus both become cpp, C# becomes csharp, Node.js becomes nodejs.</p>
+<h2>Stemming and stop words</h2>
+<p>A light rule-based stemmer unifies common inflections, so programming, programs and program converge to one index term. Stop words such as the and of are kept at indexing time because phrases need their positions; ranking simply gives them the tiny weight their ubiquity deserves.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="query-processing.html">Query processing</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="html-parsing.html">HTML parsing</a></li>
+</ul>
+</body>
+</html>

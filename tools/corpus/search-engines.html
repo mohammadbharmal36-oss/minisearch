@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>How Search Engines Work</title>
+<meta name="description" content="The crawl, parse, index and rank pipeline behind every web search engine.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>How Search Engines Work</h1>
+<h2>The pipeline</h2>
+<p>A web search engine is a pipeline. A crawler discovers and downloads pages. A parser turns raw HTML into clean text and links. A text processor tokenizes that text into terms. An indexer builds the data structures that map terms to documents. A query processor evaluates user queries against those structures, and a ranking function scores the matching documents so the best answers appear first.</p>
+<p>MiniSearch implements this entire pipeline from scratch in C++: the inverted index, the TF-IDF and BM25 ranking functions, the Boolean and phrase query processing, and the crawler are all hand-written.</p>
+<h2>Why ranking matters</h2>
+<p>Retrieval without ranking is a sorted list of everything that matches. Ranking is what turns a match set into an answer. Classical ranking functions combine how often a term appears in a document (term frequency) with how rare the term is across the whole collection (inverse document frequency).</p>
+<p>Modern engines add hundreds of signals, but TF-IDF and BM25 remain the readable, teachable core of text ranking, and they remain competitive baselines for keyword search.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="tf-idf.html">TF-IDF ranking</a></li>
+<li><a href="bm25.html">BM25 ranking algorithm</a></li>
+<li><a href="web-crawlers.html">Web crawlers</a></li>
+<li><a href="/">Corpus home</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Web Crawlers and Politeness</title>
+<meta name="description" content="How a crawler discovers pages without becoming a nuisance.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Web Crawlers</h1>
+<h2>The frontier</h2>
+<p>A crawler starts from seed URLs and follows hyperlinks breadth first. The frontier is the queue of URLs waiting to be fetched; a visited set prevents loops; a depth budget stops the crawl from wandering into the entire web; and a page budget caps the total work per job.</p>
+<h2>Politeness</h2>
+<p>A polite crawler respects robots.txt, sends a descriptive User-Agent, and spaces requests to the same host. MiniSearch serializes requests per host with a configurable delay and only parallelizes across different hosts. It also refuses login-looking URLs, because authenticated content is neither public nor polite to scrape.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="robots-txt.html">The robots.txt protocol</a></li>
+<li><a href="http-basics.html">HTTP protocol basics</a></li>
+<li><a href="html-parsing.html">HTML parsing</a></li>
+<li><a href="search-engines.html">How search engines work</a></li>
+</ul>
+</body>
+</html>

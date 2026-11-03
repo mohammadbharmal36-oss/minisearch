@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Persistence and Restarts</title>
+<meta name="description" content="Making an index survive process shutdowns.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Persistence</h1>
+<h2>What persists</h2>
+<p>MiniSearch persists two things: the SQLite database with every document's metadata and content, and a binary serialization of the inverted index with delta-encoded posting lists. Saving is atomic - a temporary file is fully written and then renamed - so a crash mid-save can never destroy a good index.</p>
+<h2>Startup</h2>
+<p>On startup the engine loads the index file and reconciles it with the database: new documents are indexed incrementally, postings of deleted documents are dropped, and a corrupted index file is detected by its header and structural checks and rebuilt honestly rather than trusted.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="sql-and-sqlite.html">SQL and SQLite</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="search-engines.html">How search engines work</a></li>
+</ul>
+</body>
+</html>

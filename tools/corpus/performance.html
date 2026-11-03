@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Search Engine Performance</title>
+<meta name="description" content="Measuring before optimizing.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>Search Engine Performance</h1>
+<h2>Measure first</h2>
+<p>The benchmark command compares brute-force document scanning with inverted-index retrieval on the same corpus and queries, reporting per-query latency for both. Only after such measurements do optimizations earn their place: contiguous posting lists, reserved hash capacity, and serialization that loads in one pass.</p>
+<h2>Latency budget</h2>
+<p>A keyword search over thousands of documents should complete in well under a millisecond: one hash lookup per term, a posting list scan bounded by document frequency, and a small heap for the top results. The expensive parts of a real search page - snippets and metadata reads - are exactly what the benchmark keeps visible instead of hiding.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="bm25.html">BM25 ranking algorithm</a></li>
+<li><a href="storage-and-persistence.html">Persistence and restarts</a></li>
+</ul>
+</body>
+</html>

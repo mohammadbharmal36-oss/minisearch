@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The C++ Standard Template Library</title>
+<meta name="description" content="Containers, iterators and algorithms for index building.">
+<link rel="canonical" href="">
+<link rel="stylesheet" href="">
+</head>
+<body>
+<h1>The Standard Template Library</h1>
+<h2>Containers for search</h2>
+<p>The STL provides exactly the containers an inverted index needs: unordered_map for term lookup, vector for posting lists, and sort plus lower_bound for keeping lists ordered by document id. Reserving capacity and keeping postings contiguous keeps the index cache friendly.</p>
+<h2>Algorithms</h2>
+<p>Standard algorithms such as sort, stable_sort, set operations and binary search implement most of the index's mechanics in a few lines each, which is why the hand-written core stays readable and auditable.</p>
+<h2>See also</h2>
+<ul>
+<li><a href="c-plus-plus.html">C++ programming language</a></li>
+<li><a href="inverted-index.html">The inverted index</a></li>
+<li><a href="sql-and-sqlite.html">SQL and SQLite databases</a></li>
+</ul>
+</body>
+</html>
