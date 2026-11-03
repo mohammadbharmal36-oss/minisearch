@@ -337,30 +337,3 @@ keyword+semantic fusion, autocomplete beyond prefix terms, result
 highlighting server-side, PageRank over the crawled link graph,
 distributed crawling, duplicate-content detection via MinHash, Snowball
 stemming, UTF-8/ICU tokenization.
-
-## Publish this project on GitHub
-
-Yes. The repository is ready to publish as source. Before the first push,
-create an **empty** repository on GitHub (do not initialize it with a
-README or license), then from PowerShell in the project directory run:
-
-```powershell
-git init -b main
-git add .
-git status
-git commit -m "Add MiniSearch project"
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
-
-Replace the remote URL with your GitHub repository URL. Review `git status`
-before committing: `.gitignore` excludes build output, the local `vendor/`
-dependencies, and runtime database/index contents. A fresh clone therefore
-downloads the dependencies during CMake configuration and needs network
-access for that initial setup.
-
-This C++ server cannot be hosted as-is on GitHub Pages or Netlify, which
-serve static sites rather than a persistent long-running C++ process. To
-make the live search app public, host the backend on a service that supports
-long-running processes and persistent storage; the frontend can be hosted
-separately, with its API requests configured to reach that backend.
