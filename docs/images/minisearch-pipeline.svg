@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title description">
+  <title id="title">MiniSearch crawling and search pipeline</title>
+  <desc id="description">Web pages are crawled, parsed, processed and indexed. Queries are parsed, ranked and returned through the HTTP API to the web interface.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101a30"/>
+      <stop offset="1" stop-color="#172745"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#6d9bff"/>
+      <stop offset="1" stop-color="#46d6c8"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 10 5 0 10z" fill="#87a9ec"/>
+    </marker>
+    <style>
+      .title { font: 700 25px Arial, sans-serif; fill: #f4f7ff; }
+      .subtitle { font: 14px Arial, sans-serif; fill: #aebbd3; }
+      .label { font: 700 15px Arial, sans-serif; fill: #f4f7ff; }
+      .detail { font: 12px Arial, sans-serif; fill: #b7c4da; }
+      .tag { font: 700 12px Arial, sans-serif; fill: #d8e5ff; letter-spacing: 1px; }
+    </style>
+  </defs>
+  <rect width="1200" height="420" rx="24" fill="url(#background)"/>
+  <circle cx="1090" cy="50" r="130" fill="#315590" opacity=".14"/>
+  <circle cx="115" cy="360" r="150" fill="#36b9b3" opacity=".08"/>
+
+  <text x="54" y="58" class="title">MiniSearch</text>
+  <text x="54" y="84" class="subtitle">From real web pages to ranked search results</text>
+  <text x="54" y="130" class="tag">INDEXING</text>
+
+  <g>
+    <rect x="54" y="150" width="190" height="88" rx="14" fill="#202f4b" stroke="#3d5276"/>
+    <text x="74" y="184" class="label">Web pages</text>
+    <text x="74" y="208" class="detail">Seeds + discovered links</text>
+
+    <rect x="286" y="150" width="190" height="88" rx="14" fill="#202f4b" stroke="#3d5276"/>
+    <text x="306" y="184" class="label">Crawler + parser</text>
+    <text x="306" y="208" class="detail">libcurl · robots.txt · Gumbo</text>
+
+    <rect x="518" y="150" width="190" height="88" rx="14" fill="#202f4b" stroke="#3d5276"/>
+    <text x="538" y="184" class="label">Text processing</text>
+    <text x="538" y="208" class="detail">Tokens · fields · positions</text>
+
+    <rect x="750" y="150" width="190" height="88" rx="14" fill="#202f4b" stroke="#3d5276"/>
+    <text x="770" y="184" class="label">Inverted index</text>
+    <text x="770" y="208" class="detail">Postings · SQLite · file</text>
+
+    <path d="M246 194h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M478 194h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M710 194h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+
+  <path d="M845 245v53H365v-49" fill="none" stroke="url(#accent)" stroke-width="2.5" stroke-dasharray="7 7" marker-end="url(#arrow)"/>
+  <text x="54" y="326" class="tag">SEARCHING</text>
+
+  <g>
+    <rect x="54" y="344" width="190" height="54" rx="12" fill="#243754" stroke="#4a6389"/>
+    <text x="74" y="377" class="label">Query + Boolean logic</text>
+    <rect x="286" y="344" width="190" height="54" rx="12" fill="#243754" stroke="#4a6389"/>
+    <text x="306" y="377" class="label">TF-IDF / BM25</text>
+    <rect x="518" y="344" width="190" height="54" rx="12" fill="#243754" stroke="#4a6389"/>
+    <text x="538" y="377" class="label">Crow HTTP API</text>
+    <rect x="750" y="344" width="190" height="54" rx="12" fill="#243754" stroke="#4a6389"/>
+    <text x="770" y="377" class="label">Web interface</text>
+    <path d="M246 371h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M478 371h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M710 371h32" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+  </g>
+
+  <text x="984" y="176" class="tag">C++17 CORE</text>
+  <text x="984" y="204" class="detail">Hand-built retrieval</text>
+  <text x="984" y="224" class="detail">and ranking pipeline</text>
+  <path d="M956 194h18" fill="none" stroke="#87a9ec" stroke-width="3" marker-end="url(#arrow)"/>
+</svg>

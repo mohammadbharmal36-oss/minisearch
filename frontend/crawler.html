@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crawler console — MiniSearch</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="27" cy="27" r="17" fill="none" stroke="#2f6df6" stroke-width="7"/>
+          <line x1="39" y1="39" x2="54" y2="54" stroke="#0a1428" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        Mini<span class="light">Search</span>
+      </a>
+      <nav class="topnav">
+        <a href="/search">Search</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/crawler" class="active">Crawler</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap narrow">
+    <div class="card">
+      <h2>Start a crawl</h2>
+      <p class="sub">Pages are fetched over HTTP with robots.txt compliance and a
+      per-host politeness delay, then parsed, indexed and persisted.</p>
+
+      <form id="crawl-form">
+        <div class="field-block">
+          <label for="seed-urls">Seed URLs (one per line)</label>
+          <textarea id="seed-urls" placeholder="http://localhost:8081/"></textarea>
+          <div class="help">Tip: this server hosts a documentation corpus at
+            <span class="mono">http://localhost:8081/</span> — a good first crawl.</div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-block">
+            <label for="max-depth">Max depth</label>
+            <input type="number" id="max-depth" value="2" min="0" max="5">
+            <div class="help">link hops from the seeds</div>
+          </div>
+          <div class="field-block">
+            <label for="max-pages">Max pages</label>
+            <input type="number" id="max-pages" value="30" min="1" max="500">
+            <div class="help">hard budget per job</div>
+          </div>
+          <div class="field-block">
+            <label for="delay-ms">Delay per host (ms)</label>
+            <input type="number" id="delay-ms" value="200" min="0" max="10000">
+            <div class="help">politeness between requests</div>
+          </div>
+          <div class="field-block">
+            <label for="domains">Allowed domains (optional)</label>
+            <input type="text" id="domains" placeholder="example.org, other.org">
+            <div class="help">empty = all hosts</div>
+          </div>
+        </div>
+
+        <div class="form-error" id="crawl-error"></div>
+        <button class="btn btn-primary" type="submit" id="crawl-start">Start crawling</button>
+      </form>
+    </div>
+
+    <div class="card" id="progress-card" hidden>
+      <div class="toolbar" style="margin-bottom:6px">
+        <div class="title" id="progress-title">Crawl in progress</div>
+        <span class="status-pill running" id="progress-pill">running</span>
+      </div>
+      <div class="progress"><div class="bar" id="progress-bar"></div></div>
+      <div class="counter-row">
+        <div class="counter"><div class="n" id="c-queued">0</div><div class="l">queued</div></div>
+        <div class="counter"><div class="n" id="c-fetched">0</div><div class="l">fetched</div></div>
+        <div class="counter ok"><div class="n" id="c-ok">0</div><div class="l">indexed</div></div>
+        <div class="counter bad"><div class="n" id="c-failed">0</div><div class="l">failed</div></div>
+        <div class="counter"><div class="n" id="c-skipped">0</div><div class="l">skipped</div></div>
+        <div class="counter"><div class="n" id="c-elapsed">0s</div><div class="l">elapsed</div></div>
+      </div>
+
+      <div class="section-title">Crawl log (most recent first)</div>
+      <table class="log-table">
+        <thead><tr><th style="width:86px">status</th><th>URL</th><th style="width:70px">http</th><th>note</th></tr></thead>
+        <tbody id="log-body"></tbody>
+      </table>
+    </div>
+
+    <div class="card" id="done-card" hidden>
+      <h2>Crawl finished</h2>
+      <p class="sub" id="done-summary"></p>
+      <a class="btn btn-primary" href="/search" style="display:inline-block">Search the new index →</a>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/crawler.js"></script>
+</body>
+</html>

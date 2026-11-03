@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics — MiniSearch</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="27" cy="27" r="17" fill="none" stroke="#2f6df6" stroke-width="7"/>
+          <line x1="39" y1="39" x2="54" y2="54" stroke="#0a1428" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        Mini<span class="light">Search</span>
+      </a>
+      <nav class="topnav">
+        <a href="/search">Search</a>
+        <a href="/analytics" class="active">Analytics</a>
+        <a href="/crawler">Crawler</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="title">Index analytics</div>
+      <label class="toggle"><input type="checkbox" id="auto-refresh" checked> auto-refresh</label>
+      <button class="btn btn-secondary" id="refresh-now">Refresh</button>
+    </div>
+
+    <div class="stat-grid" id="stats-grid">
+      <div class="stat accent">
+        <div class="label">Indexed documents</div><div class="value" id="a-docs">—</div>
+        <div class="note" id="a-last-index">never indexed</div>
+      </div>
+      <div class="stat"><div class="label">Unique terms</div><div class="value" id="a-terms">—</div></div>
+      <div class="stat"><div class="label">Total postings</div><div class="value" id="a-postings">—</div></div>
+      <div class="stat"><div class="label">Index size</div><div class="value" id="a-size">—</div></div>
+      <div class="stat"><div class="label">Average document length</div><div class="value" id="a-avgdoc">—</div><div class="note">tokens per document</div></div>
+      <div class="stat"><div class="label">Average search latency</div><div class="value" id="a-latency">—</div><div class="note" id="a-searchcount">0 searches served</div></div>
+      <div class="stat"><div class="label">Pages crawled</div><div class="value" id="a-crawled">—</div><div class="note" id="a-failed">0 failed</div></div>
+      <div class="stat"><div class="label">Crawl jobs run</div><div class="value" id="a-jobs">—</div></div>
+    </div>
+
+    <div class="card">
+      <h2>Most common indexed terms</h2>
+      <p class="sub">Top terms by document frequency, live from the inverted index.</p>
+      <div class="term-bars" id="term-bars"></div>
+    </div>
+
+    <div class="card" id="crawl-live">
+      <h2>Crawler status</h2>
+      <p class="sub" id="crawl-status-line">No crawl has been started yet.</p>
+      <div id="crawl-live-body"></div>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/analytics.js"></script>
+</body>
+</html>

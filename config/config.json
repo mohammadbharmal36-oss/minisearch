@@ -1,0 +1,44 @@
+{
+    "_comment": "MiniSearch configuration. All values are optional; compiled-in defaults apply when a key is absent. CLI flags override this file.",
+
+    "crawler": {
+        "seed_urls": [],
+        "max_pages": 50,
+        "max_depth": 2,
+        "request_timeout_seconds": 10,
+        "delay_ms": 500,
+        "allowed_domains": [],
+        "user_agent": "MiniSearchBot/1.0 (+MiniSearch educational search engine project)"
+    },
+
+    "text_processing": {
+        "remove_stopwords": false,
+        "apply_stemming": true,
+        "map_technical_terms": true
+    },
+
+    "ranking": {
+        "default_algorithm": "bm25",
+        "field_weights": {
+            "title": 3.0,
+            "heading": 2.0,
+            "body": 1.0
+        },
+        "bm25": {
+            "k1": 1.2,
+            "b": 0.75
+        }
+    },
+
+    "storage": {
+        "database_path": "data/database/minisearch.db",
+        "index_path": "data/index/inverted.index"
+    },
+
+    "server": {
+        "host": "0.0.0.0",
+        "port": 8080,
+        "static_root": "frontend",
+        "corpus_root": "tools/corpus"
+    }
+}

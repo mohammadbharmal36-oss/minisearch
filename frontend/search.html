@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — MiniSearch</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="27" cy="27" r="17" fill="none" stroke="#2f6df6" stroke-width="7"/>
+          <line x1="39" y1="39" x2="54" y2="54" stroke="#0a1428" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        Mini<span class="light">Search</span>
+      </a>
+      <nav class="topnav">
+        <a href="/search" class="active">Search</a>
+        <a href="/analytics">Analytics</a>
+        <a href="/crawler">Crawler</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="wrap narrow">
+    <form class="searchbar" id="page-search" autocomplete="off">
+      <div class="field">
+        <input type="search" id="page-query" aria-label="Search query" maxlength="512"
+               placeholder="Search… terms, AND / OR / NOT, &quot;phrases&quot;">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+      <div class="suggest" id="page-suggest" role="listbox"></div>
+    </form>
+
+    <div class="resultbar">
+      <div class="meta" id="result-meta"></div>
+      <div class="spacer"></div>
+      <select class="control" id="algo-select" aria-label="Ranking algorithm">
+        <option value="bm25">BM25</option>
+        <option value="tfidf">TF-IDF</option>
+      </select>
+      <select class="control" id="limit-select" aria-label="Results per page">
+        <option value="10">10 / page</option>
+        <option value="20">20 / page</option>
+        <option value="50">50 / page</option>
+      </select>
+    </div>
+
+    <div id="result-area">
+      <div class="state" id="initial-state" hidden>
+        <div class="icon">🔎</div>
+        <h3>Type something to search</h3>
+        <p>Every result comes from documents this engine crawled and indexed itself.</p>
+      </div>
+      <div class="spinner" id="loading" hidden></div>
+      <div class="state" id="no-results" hidden>
+        <div class="icon">🤔</div>
+        <h3>No results</h3>
+        <p>No indexed document matched this query. Try fewer or different terms,
+           or crawl more pages from the <a href="/crawler">crawler console</a>.</p>
+      </div>
+      <div class="state error" id="error-state" hidden>
+        <div class="icon">⚠️</div>
+        <h3>Search failed</h3>
+        <p id="error-message"></p>
+      </div>
+      <div class="results" id="results"></div>
+    </div>
+
+    <div class="pagination" id="pagination"></div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/search.js"></script>
+</body>
+</html>

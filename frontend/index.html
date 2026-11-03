@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiniSearch — Explore information. Find what matters.</title>
+  <meta name="description" content="MiniSearch is an independently built search engine: custom crawler, hand-written inverted index, TF-IDF and BM25 ranking.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <div class="hero">
+    <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+      <circle cx="27" cy="27" r="17" fill="none" stroke="#6d9bff" stroke-width="7"/>
+      <line x1="39" y1="39" x2="54" y2="54" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+    </svg>
+    <h1>MiniSearch</h1>
+    <p class="tagline">Explore information. Find what matters.</p>
+
+    <form class="searchbar" id="home-search" autocomplete="off">
+      <div class="field">
+        <input type="search" id="home-query" placeholder="Search the indexed web…"
+               aria-label="Search query" maxlength="512">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+      <div class="suggest" id="home-suggest" role="listbox"></div>
+    </form>
+
+    <p class="hint">
+      Try <code>c++ programming</code> · <code>"competitive programming"</code> ·
+      <code>inverted AND index</code> · <code>python OR sql</code> · <code>index NOT sql</code>
+    </p>
+  </div>
+
+  <div class="home-stats">
+    <div class="stat-grid" id="home-stats">
+      <div class="stat"><div class="label">Indexed documents</div><div class="value" id="s-docs">—</div></div>
+      <div class="stat"><div class="label">Unique terms</div><div class="value" id="s-terms">—</div></div>
+      <div class="stat accent"><div class="label">Average search latency</div><div class="value" id="s-latency">—</div><div class="note">measured by the engine</div></div>
+      <div class="stat"><div class="label">Pages crawled</div><div class="value" id="s-crawled">—</div></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="section-title">About this engine</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Independently built</h3>
+        <p>The crawler, inverted index, TF-IDF and BM25 ranking, and the Boolean
+        &amp; phrase query engine are all written from scratch in C++17. No
+        external search library does the work.</p>
+      </div>
+      <div class="about-card">
+        <h3>Real results only</h3>
+        <p>Every result was genuinely crawled over HTTP, parsed, tokenized,
+        indexed and ranked by this engine. Nothing on this site is hardcoded.</p>
+      </div>
+      <div class="about-card">
+        <h3>Open operations</h3>
+        <p>Watch the crawler work and inspect live index statistics on the
+        <a href="/analytics">analytics</a> and <a href="/crawler">crawler</a> pages.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>MiniSearch — an independently built miniature search engine. C++17 core, hand-written inverted index.</div>
+    <div class="foot-links"><a href="/analytics">Analytics</a> · <a href="/crawler">Crawler console</a></div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/search.js"></script>
+</body>
+</html>
