@@ -312,7 +312,7 @@ MiniSearch/
 ├── docs/                   # architecture.md, algorithms.md, benchmarks.md, images/
 └── vendor/                 # zip only: gumbo + crow + nlohmann/json, offline build
 ```
-
+⚠️ Before making any pull requests,please question your life decisions,reconsider your entire existence,and make sure you're mentally prepared for the consequences.Proceed at your own risk.
 ## Known limitations
 
 - **ASCII tokenization.** Non-ASCII bytes act as separators (`café → caf`);
